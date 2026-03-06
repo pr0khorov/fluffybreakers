@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { LanguageService } from '../../services/language.service';
 
 interface Guide {
-  title: string;
+  titleKey: string;
   file: string;
   safeUrl?: SafeResourceUrl;
   expanded?: boolean;
@@ -16,11 +17,11 @@ interface Guide {
 export class GuidesComponent {
   guides: Guide[] = [
     {
-      title: 'Dog Stress Signs Checklist',
+      titleKey: 'guides.item1',
       file: 'assets/guides/Dog Stress Signs checklist.pdf'
     },
     {
-      title: 'Why Dogs Pull on the Leash',
+      titleKey: 'guides.item2',
       file: 'assets/guides/Why dogs pull on the leash.pdf'
     }
   ];
@@ -29,7 +30,7 @@ export class GuidesComponent {
   selectedUrl: SafeResourceUrl | null = null;
   isMobile = false;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, public i18n: LanguageService) {
     this.checkMobile();
     window.addEventListener('resize', () => this.checkMobile());
   }

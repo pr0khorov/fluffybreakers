@@ -1,11 +1,10 @@
 <section class="certificates-page">
-  <h1>Сертификаты</h1>
-  <p class="subtitle">Наши достижения и подтверждения квалификации</p>
+  <h1>{{ i18n.t('certificates.title') }}</h1>
 
   <!-- Desktop / tablet viewer (top block) -->
   <div class="viewer viewer--desktop" *ngIf="selectedCert && selectedUrl">
     <div class="viewer__header">
-      <button class="viewer__close" (click)="close()">Закрыть</button>
+      <button class="viewer__close" (click)="close()">{{ i18n.t('certificates.close') }}</button>
     </div>
     <div class="viewer__body">
       <iframe *ngIf="selectedCert.fileType === 'pdf'" [src]="selectedUrl" class="viewer__frame"></iframe>
@@ -38,7 +37,7 @@
         </svg>
       </div>
 
-      <span class="card__action">{{ cert.expanded ? 'Скрыть' : 'Просмотреть' }}</span>
+      <span class="card__action">{{ cert.expanded ? i18n.t('certificates.hide') : i18n.t('certificates.view') }}</span>
 
       <!-- Mobile inline viewer -->
       <div

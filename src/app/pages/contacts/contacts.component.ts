@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../../services/language.service';
 
 interface ContactItem {
   icon: string;
-  label: string;
+  label?: string;
+  labelKey?: string;
   value: string;
   link: string;
 }
@@ -13,6 +15,8 @@ interface ContactItem {
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent {
+  constructor(public i18n: LanguageService) {}
+
   contacts: ContactItem[] = [
     {
       icon: '📷',
@@ -34,13 +38,13 @@ export class ContactsComponent {
     },
     {
       icon: '📞',
-      label: 'Телефон',
+      labelKey: 'contacts.phone',
       value: '+37126963506',
       link: 'tel:+37126963506'
     },
     {
       icon: '📧',
-      label: 'Почта',
+      labelKey: 'contacts.email',
       value: 'girlinorange17@gmail.com',
       link: 'mailto:girlinorange17@gmail.com'
     }

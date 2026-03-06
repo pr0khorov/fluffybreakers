@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { LanguageService } from '../../services/language.service';
 
 type FileType = 'pdf' | 'image';
 
@@ -21,7 +22,7 @@ export class CertificatesComponent {
   selectedUrl: SafeResourceUrl | null = null;
   isMobile = false;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, public i18n: LanguageService) {
     this.checkMobile();
     window.addEventListener('resize', () => this.checkMobile());
 

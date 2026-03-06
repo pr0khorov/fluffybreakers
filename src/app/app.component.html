@@ -4,10 +4,11 @@
 
     <!-- Desktop nav -->
     <nav class="header__nav-desktop">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
-      <a routerLink="/certificates" routerLinkActive="active">Сертификаты</a>
-      <a routerLink="/guides" routerLinkActive="active">Гайды</a>
-      <a routerLink="/contacts" routerLinkActive="active">Контакты</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ i18n.t('nav.home') }}</a>
+      <a routerLink="/certificates" routerLinkActive="active">{{ i18n.t('nav.certificates') }}</a>
+      <a routerLink="/guides" routerLinkActive="active">{{ i18n.t('nav.guides') }}</a>
+      <a routerLink="/contacts" routerLinkActive="active">{{ i18n.t('nav.contacts') }}</a>
+      <button class="lang-toggle" (click)="toggleLang()">{{ i18n.lang === 'en' ? 'RU' : 'EN' }}</button>
     </nav>
 
     <!-- Burger button (mobile only) -->
@@ -26,10 +27,11 @@
 
 <!-- Mobile slide-out nav -->
 <nav class="mobile-nav" [class.mobile-nav--open]="menuOpen">
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Главная</a>
-  <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">Сертификаты</a>
-  <a routerLink="/guides" routerLinkActive="active" (click)="closeMenu()">Гайды</a>
-  <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">Контакты</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{ i18n.t('nav.home') }}</a>
+  <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.certificates') }}</a>
+  <a routerLink="/guides" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.guides') }}</a>
+  <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.contacts') }}</a>
+  <button class="lang-toggle" (click)="toggleLang(); closeMenu()">{{ i18n.lang === 'en' ? 'RU' : 'EN' }}</button>
 </nav>
 
 <div
@@ -44,6 +46,6 @@
 
 <footer class="footer">
   <div class="footer__container">
-    <p>&copy; 2026 FluffyBreakers. Все права защищены.</p>
+    <p>{{ i18n.t('footer.rights') }}</p>
   </div>
 </footer>

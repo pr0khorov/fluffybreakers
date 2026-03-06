@@ -1,0 +1,132 @@
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+export type Lang = 'en' | 'ru';
+
+const TRANSLATIONS: Record<Lang, Record<string, string>> = {
+  en: {
+    // Nav
+    'nav.home': 'Home',
+    'nav.certificates': 'Certificates',
+    'nav.guides': 'Guides',
+    'nav.contacts': 'Contacts',
+
+    // Footer
+    'footer.rights': '\u00A9 2026 FluffyBreakers. All rights reserved.',
+
+    // Home — hero
+    'home.name': 'Aleksandra',
+    'home.brand': 'Fluffy Breakers',
+    'home.hero': 'Dog behavior specialist & Pet loss grief counselor<br>Riga, Latvia & Online<br>Helping through hard moments.<br>\uD83E\uDDE1bond\uD83E\uDDE1trust\uD83E\uDDE1comfort\uD83E\uDDE1safety\uD83E\uDDE1',
+
+    // Home — FAQ
+    'faq.q1': 'Do you take new clients?',
+    'faq.a1': 'Yes. I regularly open spots for new clients, both online and offline.\nIf the schedule is full, you can join the waitlist and I\'ll contact you as soon as a place becomes available.',
+    'faq.q2': 'What can you help us with?',
+    'faq.a2': 'Dog behavior and everyday life together.\nReactivity, pulling, fears, aggression, puppy basics, calm walks \u2014 and also pet loss grief support.\nWe work step-by-step, at your pace, with realistic solutions, without shame and pressure.',
+    'faq.q3': 'Your price list?',
+    'faq.a3': 'Both online & offline consultations: 30\u20AC',
+    'faq.q4': 'Where do you work?',
+    'faq.a4': '\uD83D\uDCCD Riga, Latvia \u2014 in person\n\uD83C\uDF10 Worldwide \u2014 online\nOnline work is just as effective and often more convenient for owners.',
+    'faq.q5': 'How can I contact you?',
+    'faq.a5': 'Via DM in Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nAlso see \u201CContacts\u201D page for more options.',
+    'faq.q6': 'Do you have anything besides consultations?',
+    'faq.a6': 'Yes \uD83E\uDD0D\nIf you\'re not ready for a full consultation yet, you can start small. Below you can find my checklist and guide. And, of course, blog posts & reels with practical tips.',
+
+    // Certificates
+    'certificates.title': 'Certificates',
+    'certificates.close': 'Close',
+    'certificates.hide': 'Hide',
+    'certificates.view': 'View',
+
+    // Guides
+    'guides.title': 'Guides',
+    'guides.close': 'Close',
+    'guides.hide': 'Hide',
+    'guides.viewPdf': 'View PDF',
+    'guides.item1': 'Dog Stress Signs Checklist',
+    'guides.item2': 'Why Dogs Pull on the Leash',
+
+    // Contacts
+    'contacts.title': 'Contacts',
+    'contacts.phone': 'Phone',
+    'contacts.email': 'Email',
+  },
+
+  ru: {
+    // Nav
+    'nav.home': '\u0413\u043B\u0430\u0432\u043D\u0430\u044F',
+    'nav.certificates': '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B',
+    'nav.guides': '\u0413\u0430\u0439\u0434\u044B',
+    'nav.contacts': '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B',
+
+    // Footer
+    'footer.rights': '\u00A9 2026 FluffyBreakers. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
+
+    // Home — hero
+    'home.name': '\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\u0430',
+    'home.brand': 'Fluffy Breakers',
+    'home.hero': '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043F\u043E \u043F\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u044E \u0441\u043E\u0431\u0430\u043A \u0438 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430 \u043F\u0440\u0438 \u043F\u043E\u0442\u0435\u0440\u0435 \u043F\u0438\u0442\u043E\u043C\u0446\u0430<br>\u0420\u0438\u0433\u0430, \u041B\u0430\u0442\u0432\u0438\u044F \u0438 \u043E\u043D\u043B\u0430\u0439\u043D<br>\u041F\u043E\u043C\u043E\u0433\u0430\u044E \u0432 \u0442\u0440\u0443\u0434\u043D\u044B\u0435 \u043C\u043E\u043C\u0435\u043D\u0442\u044B.<br>\uD83E\uDDE1\u0441\u0432\u044F\u0437\u044C\uD83E\uDDE1\u0434\u043E\u0432\u0435\u0440\u0438\u0435\uD83E\uDDE1\u043A\u043E\u043C\u0444\u043E\u0440\u0442\uD83E\uDDE1\u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C\uD83E\uDDE1',
+
+    // Home — FAQ
+    'faq.q1': '\u0412\u044B \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0442\u0435 \u043D\u043E\u0432\u044B\u0445 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432?',
+    'faq.a1': '\u0414\u0430. \u042F \u0440\u0435\u0433\u0443\u043B\u044F\u0440\u043D\u043E \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u044E \u043C\u0435\u0441\u0442\u0430 \u0434\u043B\u044F \u043D\u043E\u0432\u044B\u0445 \u043A\u043B\u0438\u0435\u043D\u0442\u043E\u0432, \u043A\u0430\u043A \u043E\u043D\u043B\u0430\u0439\u043D, \u0442\u0430\u043A \u0438 \u043E\u0444\u043B\u0430\u0439\u043D.\n\u0415\u0441\u043B\u0438 \u0440\u0430\u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0437\u0430\u043D\u044F\u0442\u043E, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u0432\u0441\u0442\u0430\u0442\u044C \u0432 \u043B\u0438\u0441\u0442 \u043E\u0436\u0438\u0434\u0430\u043D\u0438\u044F, \u0438 \u044F \u0441\u0432\u044F\u0436\u0443\u0441\u044C \u0441 \u0432\u0430\u043C\u0438, \u043A\u0430\u043A \u0442\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u044F\u0432\u0438\u0442\u0441\u044F \u043C\u0435\u0441\u0442\u043E.',
+    'faq.q2': '\u0421 \u0447\u0435\u043C \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u043C\u043E\u0447\u044C?',
+    'faq.a2': '\u041F\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u0435 \u0441\u043E\u0431\u0430\u043A \u0438 \u043F\u043E\u0432\u0441\u0435\u0434\u043D\u0435\u0432\u043D\u0430\u044F \u0436\u0438\u0437\u043D\u044C \u0432\u043C\u0435\u0441\u0442\u0435.\n\u0420\u0435\u0430\u043A\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C, \u043D\u0430\u0442\u044F\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u0432\u043E\u0434\u043A\u0430, \u0441\u0442\u0440\u0430\u0445\u0438, \u0430\u0433\u0440\u0435\u0441\u0441\u0438\u044F, \u043E\u0441\u043D\u043E\u0432\u044B \u0434\u043B\u044F \u0449\u0435\u043D\u043A\u043E\u0432, \u0441\u043F\u043E\u043A\u043E\u0439\u043D\u044B\u0435 \u043F\u0440\u043E\u0433\u0443\u043B\u043A\u0438 \u2014 \u0430 \u0442\u0430\u043A\u0436\u0435 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430 \u043F\u0440\u0438 \u043F\u043E\u0442\u0435\u0440\u0435 \u043F\u0438\u0442\u043E\u043C\u0446\u0430.\n\u041C\u044B \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u043C \u043F\u043E\u0448\u0430\u0433\u043E\u0432\u043E, \u0432 \u0432\u0430\u0448\u0435\u043C \u0442\u0435\u043C\u043F\u0435, \u0441 \u0440\u0435\u0430\u043B\u0438\u0441\u0442\u0438\u0447\u043D\u044B\u043C\u0438 \u0440\u0435\u0448\u0435\u043D\u0438\u044F\u043C\u0438, \u0431\u0435\u0437 \u0441\u0442\u044B\u0434\u0430 \u0438 \u0434\u0430\u0432\u043B\u0435\u043D\u0438\u044F.',
+    'faq.q3': '\u041F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442?',
+    'faq.a3': '\u041A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438 \u043E\u043D\u043B\u0430\u0439\u043D \u0438 \u043E\u0444\u043B\u0430\u0439\u043D: 30\u20AC',
+    'faq.q4': '\u0413\u0434\u0435 \u0432\u044B \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442\u0435?',
+    'faq.a4': '\uD83D\uDCCD \u0420\u0438\u0433\u0430, \u041B\u0430\u0442\u0432\u0438\u044F \u2014 \u043E\u0447\u043D\u043E\n\uD83C\uDF10 \u041F\u043E \u0432\u0441\u0435\u043C\u0443 \u043C\u0438\u0440\u0443 \u2014 \u043E\u043D\u043B\u0430\u0439\u043D\n\u041E\u043D\u043B\u0430\u0439\u043D-\u0440\u0430\u0431\u043E\u0442\u0430 \u0442\u0430\u043A \u0436\u0435 \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u0430 \u0438 \u0447\u0430\u0441\u0442\u043E \u0443\u0434\u043E\u0431\u043D\u0435\u0435 \u0434\u043B\u044F \u0432\u043B\u0430\u0434\u0435\u043B\u044C\u0446\u0435\u0432.',
+    'faq.q5': '\u041A\u0430\u043A \u0441 \u0432\u0430\u043C\u0438 \u0441\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F?',
+    'faq.a5': '\u0427\u0435\u0440\u0435\u0437 \u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F \u0432 Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\n\u0422\u0430\u043A\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443 \u00AB\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B\u00BB.',
+    'faq.q6': '\u0415\u0441\u0442\u044C \u043B\u0438 \u0447\u0442\u043E-\u0442\u043E \u043A\u0440\u043E\u043C\u0435 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0439?',
+    'faq.a6': '\u0414\u0430 \uD83E\uDD0D\n\u0415\u0441\u043B\u0438 \u0432\u044B \u0435\u0449\u0451 \u043D\u0435 \u0433\u043E\u0442\u043E\u0432\u044B \u043A \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438, \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0447\u0430\u0442\u044C \u0441 \u043C\u0430\u043B\u043E\u0433\u043E. \u041D\u0438\u0436\u0435 \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u043C\u043E\u0439 \u0447\u0435\u043A-\u043B\u0438\u0441\u0442 \u0438 \u0433\u0430\u0439\u0434. \u0410 \u0442\u0430\u043A\u0436\u0435, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043F\u043E\u0441\u0442\u044B \u0438 \u0440\u0438\u043B\u0441\u044B \u0441 \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0441\u043E\u0432\u0435\u0442\u0430\u043C\u0438.',
+
+    // Certificates
+    'certificates.title': '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B',
+    'certificates.close': '\u0417\u0430\u043A\u0440\u044B\u0442\u044C',
+    'certificates.hide': '\u0421\u043A\u0440\u044B\u0442\u044C',
+    'certificates.view': '\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C',
+
+    // Guides
+    'guides.title': '\u0413\u0430\u0439\u0434\u044B',
+    'guides.close': '\u0417\u0430\u043A\u0440\u044B\u0442\u044C',
+    'guides.hide': '\u0421\u043A\u0440\u044B\u0442\u044C',
+    'guides.viewPdf': '\u041F\u0440\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C PDF',
+    'guides.item1': '\u0427\u0435\u043A-\u043B\u0438\u0441\u0442 \u043F\u0440\u0438\u0437\u043D\u0430\u043A\u043E\u0432 \u0441\u0442\u0440\u0435\u0441\u0441\u0430 \u0443 \u0441\u043E\u0431\u0430\u043A',
+    'guides.item2': '\u041F\u043E\u0447\u0435\u043C\u0443 \u0441\u043E\u0431\u0430\u043A\u0438 \u0442\u044F\u043D\u0443\u0442 \u043F\u043E\u0432\u043E\u0434\u043E\u043A',
+
+    // Contacts
+    'contacts.title': '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B',
+    'contacts.phone': '\u0422\u0435\u043B\u0435\u0444\u043E\u043D',
+    'contacts.email': '\u041F\u043E\u0447\u0442\u0430',
+  }
+};
+
+@Injectable({ providedIn: 'root' })
+export class LanguageService {
+  private currentLang: Lang = 'en';
+  lang$ = new BehaviorSubject<Lang>(this.currentLang);
+
+  constructor() {
+    const saved = localStorage.getItem('lang') as Lang | null;
+    if (saved && (saved === 'en' || saved === 'ru')) {
+      this.currentLang = saved;
+      this.lang$.next(saved);
+    }
+  }
+
+  get lang(): Lang {
+    return this.currentLang;
+  }
+
+  setLang(lang: Lang): void {
+    this.currentLang = lang;
+    localStorage.setItem('lang', lang);
+    this.lang$.next(lang);
+  }
+
+  t(key: string): string {
+    return TRANSLATIONS[this.currentLang][key] || key;
+  }
+}

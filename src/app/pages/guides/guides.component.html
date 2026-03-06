@@ -1,12 +1,11 @@
 <section class="guides-page">
-  <h1>Гайды</h1>
-  <p class="subtitle">Полезные материалы для владельцев собак</p>
+  <h1>{{ i18n.t('guides.title') }}</h1>
 
   <!-- Desktop viewer (top block) -->
   <div class="viewer viewer--desktop" *ngIf="selectedGuide && selectedUrl">
     <div class="viewer__header">
-      <h2>{{ selectedGuide.title }}</h2>
-      <button class="viewer__close" (click)="close()">Закрыть</button>
+      <h2>{{ i18n.t(selectedGuide.titleKey) }}</h2>
+      <button class="viewer__close" (click)="close()">{{ i18n.t('guides.close') }}</button>
     </div>
     <iframe [src]="selectedUrl" class="viewer__frame"></iframe>
   </div>
@@ -28,8 +27,8 @@
           <text x="19" y="33" text-anchor="middle" font-size="5" font-weight="bold" fill="#e2574c" font-family="Arial,sans-serif">PDF</text>
         </svg>
       </div>
-      <h3>{{ guide.title }}</h3>
-      <span class="card__action">{{ guide.expanded ? 'Скрыть' : 'Просмотреть PDF' }}</span>
+      <h3>{{ i18n.t(guide.titleKey) }}</h3>
+      <span class="card__action">{{ guide.expanded ? i18n.t('guides.hide') : i18n.t('guides.viewPdf') }}</span>
 
       <!-- Mobile inline viewer -->
       <div

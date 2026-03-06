@@ -1,15 +1,9 @@
 <section class="hero">
   <img class="hero__photo" src="assets/photos/main.png" alt="FluffyBreakers" />
   <div class="hero__text">
-    <h1>Aleksandra</h1>
-    <h2>Fluffy Breakers</h2>
-    <p>Dog behavior specialist & Pet loss grief counselor
-      <br>
-      Riga, Latvia & Online
-      <br>
-      Helping through hard moments.
-      <br>
-      🧡bond🧡trust🧡comfort🧡safety🧡</p>
+    <h1>{{ i18n.t('home.name') }}</h1>
+    <h2>{{ i18n.t('home.brand') }}</h2>
+    <p [innerHTML]="i18n.t('home.hero')"></p>
   </div>
 </section>
 
@@ -20,11 +14,11 @@
     *ngFor="let item of faqItems"
   >
     <button class="faq-item__question" (click)="toggle(item)">
-      <span>{{ item.question }}</span>
+      <span>{{ i18n.t(item.qKey) }}</span>
       <span class="faq-item__arrow">&#9662;</span>
     </button>
     <div class="faq-item__answer">
-      <p [innerHTML]="item.answerHtml"></p>
+      <p [innerHTML]="answerHtml(item.aKey)"></p>
     </div>
   </div>
 </section>
