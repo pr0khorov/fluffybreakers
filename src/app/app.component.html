@@ -2,6 +2,14 @@
   <div class="header__container">
     <a routerLink="/" class="header__logo" (click)="closeMenu()">FluffyBreakers</a>
 
+    <!-- Desktop nav -->
+    <nav class="header__nav-desktop">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
+      <a routerLink="/certificates" routerLinkActive="active">Сертификаты</a>
+      <a routerLink="/gallery" routerLinkActive="active">Галерея</a>
+    </nav>
+
+    <!-- Burger button (mobile only) -->
     <button
       class="header__burger"
       [class.header__burger--open]="menuOpen"
@@ -15,6 +23,7 @@
   </div>
 </header>
 
+<!-- Mobile slide-out nav -->
 <nav class="mobile-nav" [class.mobile-nav--open]="menuOpen">
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Главная</a>
   <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">Сертификаты</a>

@@ -6,6 +6,8 @@ interface Certificate {
   issuer: string;
   date: string;
   pdfFile: string;
+  pdfUrl?: SafeResourceUrl;
+  expanded?: boolean;
 }
 
 @Component({
@@ -43,12 +45,34 @@ export class CertificatesComponent {
 
   selectedCert: Certificate | null = null;
   selectedPdfUrl: SafeResourceUrl | null = null;
+  isMobile = false;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+    this.checkMobile();
+    window.addEventListener('resize', () => this.checkMobile());
+  }
+
+  private checkMobile(): void {
+    this.isMobile = window.innerWidth < 768;
+  }
 
   openPdf(cert: Certificate): void {
-    this.selectedCert = cert;
-    this.selectedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.pdfFile);
+    if (this.isMobile) {
+      // Toggle inline viewer inside the card
+      if (cert.expanded) {
+        cert.expanded = false;
+        cert.pdfUrl = undefined;
+      } else {
+        // Close any other open card
+        this.certificates.forEach(c => { c.expanded = false; c.pdfUrl = undefined; });
+        cert.expanded = true;
+        cert.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.pdfFile);
+      }
+    } else {
+      // Desktop: show in top viewer
+      this.selectedCert = cert;
+      this.selectedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.pdfFile);
+    }
   }
 
   closePdf(): void {

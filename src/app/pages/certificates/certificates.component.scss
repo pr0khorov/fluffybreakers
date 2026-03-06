@@ -13,12 +13,10 @@
   }
 }
 
-/* PDF Viewer */
+/* PDF Viewer — shared */
 .pdf-viewer {
   background: #fff;
-  border: 1px solid #e0e0e0;
   border-radius: 8px;
-  margin-bottom: 32px;
   overflow: hidden;
 
   &__header {
@@ -57,6 +55,17 @@
     border: none;
     display: block;
   }
+}
+
+/* Desktop top viewer */
+.pdf-viewer--desktop {
+  border: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+}
+
+/* Inline viewer inside card (mobile) */
+.pdf-viewer--inline {
+  display: none;
 }
 
 /* Certificate cards */
@@ -108,5 +117,41 @@
     font-size: 0.9rem;
     font-weight: 500;
     border-bottom: 1px dashed #667eea;
+  }
+}
+
+/* ===== Mobile ===== */
+@media screen and (max-width: 767px) {
+  /* Hide desktop top viewer */
+  .pdf-viewer--desktop {
+    display: none;
+  }
+
+  /* Show inline viewer inside card */
+  .pdf-viewer--inline {
+    display: block;
+    margin-top: 20px;
+    margin-left: -32px;
+    margin-right: -32px;
+    margin-bottom: -32px;
+    border-radius: 0 0 8px 8px;
+    border-top: 1px solid #e0e0e0;
+
+    .pdf-viewer__frame {
+      height: 400px;
+    }
+  }
+
+  .certificate-card--expanded {
+    transform: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
   }
 }

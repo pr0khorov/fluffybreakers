@@ -2,8 +2,8 @@
   <h1>Сертификаты</h1>
   <p class="subtitle">Наши достижения и подтверждения квалификации</p>
 
-  <!-- PDF viewer -->
-  <div class="pdf-viewer" *ngIf="selectedCert && selectedPdfUrl">
+  <!-- Desktop PDF viewer (top block) -->
+  <div class="pdf-viewer pdf-viewer--desktop" *ngIf="selectedCert && selectedPdfUrl">
     <div class="pdf-viewer__header">
       <h2>{{ selectedCert.title }}</h2>
       <button class="pdf-viewer__close" (click)="closePdf()">Закрыть</button>
@@ -15,6 +15,7 @@
   <div class="certificates-grid">
     <div
       class="certificate-card"
+      [class.certificate-card--expanded]="cert.expanded"
       *ngFor="let cert of certificates"
       (click)="openPdf(cert)"
     >
@@ -22,7 +23,12 @@
       <h3>{{ cert.title }}</h3>
       <p class="certificate-issuer">{{ cert.issuer }}</p>
       <p class="certificate-date">{{ cert.date }}</p>
-      <span class="certificate-action">Просмотреть PDF</span>
+      <span class="certificate-action">{{ cert.expanded ? 'Скрыть' : 'Просмотреть PDF' }}</span>
+
+      <!-- Mobile inline PDF viewer -->
+      <div class="pdf-viewer pdf-viewer--inline" *ngIf="cert.expanded && cert.pdfUrl" (click)="$event.stopPropagation()">
+        <iframe [src]="cert.pdfUrl" class="pdf-viewer__frame"></iframe>
+      </div>
     </div>
   </div>
 </section>
