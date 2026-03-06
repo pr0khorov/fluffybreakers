@@ -1,0 +1,44 @@
+<section class="guides-page">
+  <h1>Гайды</h1>
+  <p class="subtitle">Полезные материалы для владельцев собак</p>
+
+  <!-- Desktop viewer (top block) -->
+  <div class="viewer viewer--desktop" *ngIf="selectedGuide && selectedUrl">
+    <div class="viewer__header">
+      <h2>{{ selectedGuide.title }}</h2>
+      <button class="viewer__close" (click)="close()">Закрыть</button>
+    </div>
+    <iframe [src]="selectedUrl" class="viewer__frame"></iframe>
+  </div>
+
+  <!-- Guide cards -->
+  <div class="guides-grid">
+    <div
+      class="guide-card"
+      [class.guide-card--expanded]="guide.expanded"
+      *ngFor="let guide of guides"
+      (click)="open(guide)"
+    >
+      <div class="card__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 64" width="64" height="72">
+          <path d="M36 0H8C5.8 0 4 1.8 4 4v56c0 2.2 1.8 4 4 4h40c2.2 0 4-1.8 4-4V16L36 0z" fill="#e2574c"/>
+          <path d="M40 16h12L36 0v12c0 2.2 1.8 4 4 4z" fill="#b53629"/>
+          <path d="M12 44h32v2H12zm0 6h32v2H12zm0-12h32v2H12z" fill="#fff"/>
+          <rect x="14" y="28" width="10" height="6" rx="1" fill="#fff"/>
+          <text x="19" y="33" text-anchor="middle" font-size="5" font-weight="bold" fill="#e2574c" font-family="Arial,sans-serif">PDF</text>
+        </svg>
+      </div>
+      <h3>{{ guide.title }}</h3>
+      <span class="card__action">{{ guide.expanded ? 'Скрыть' : 'Просмотреть PDF' }}</span>
+
+      <!-- Mobile inline viewer -->
+      <div
+        class="viewer viewer--inline"
+        *ngIf="guide.expanded && guide.safeUrl"
+        (click)="$event.stopPropagation()"
+      >
+        <iframe [src]="guide.safeUrl" class="viewer__frame"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
