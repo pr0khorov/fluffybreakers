@@ -2,13 +2,15 @@
   <h1>Сертификаты</h1>
   <p class="subtitle">Наши достижения и подтверждения квалификации</p>
 
-  <!-- Desktop PDF viewer (top block) -->
-  <div class="pdf-viewer pdf-viewer--desktop" *ngIf="selectedCert && selectedPdfUrl">
-    <div class="pdf-viewer__header">
-      <h2>{{ selectedCert.title }}</h2>
-      <button class="pdf-viewer__close" (click)="closePdf()">Закрыть</button>
+  <!-- Desktop / tablet viewer (top block) -->
+  <div class="viewer viewer--desktop" *ngIf="selectedCert && selectedUrl">
+    <div class="viewer__header">
+      <button class="viewer__close" (click)="close()">Закрыть</button>
     </div>
-    <iframe [src]="selectedPdfUrl" class="pdf-viewer__frame"></iframe>
+    <div class="viewer__body">
+      <iframe *ngIf="selectedCert.fileType === 'pdf'" [src]="selectedUrl" class="viewer__frame"></iframe>
+      <img *ngIf="selectedCert.fileType === 'image'" [src]="selectedCert.file" class="viewer__image" />
+    </div>
   </div>
 
   <!-- Certificate cards -->
@@ -17,17 +19,27 @@
       class="certificate-card"
       [class.certificate-card--expanded]="cert.expanded"
       *ngFor="let cert of certificates"
-      (click)="openPdf(cert)"
+      (click)="open(cert)"
     >
-      <div class="certificate-icon">&#128196;</div>
-      <h3>{{ cert.title }}</h3>
-      <p class="certificate-issuer">{{ cert.issuer }}</p>
-      <p class="certificate-date">{{ cert.date }}</p>
-      <span class="certificate-action">{{ cert.expanded ? 'Скрыть' : 'Просмотреть PDF' }}</span>
+      <!-- Thumbnail -->
+      <img
+        *ngIf="cert.fileType === 'image'"
+        [src]="cert.file"
+        class="card__thumb"
+        loading="lazy"
+      />
+      <div *ngIf="cert.fileType === 'pdf'" class="card__icon">&#128196;</div>
 
-      <!-- Mobile inline PDF viewer -->
-      <div class="pdf-viewer pdf-viewer--inline" *ngIf="cert.expanded && cert.pdfUrl" (click)="$event.stopPropagation()">
-        <iframe [src]="cert.pdfUrl" class="pdf-viewer__frame"></iframe>
+      <span class="card__action">{{ cert.expanded ? 'Скрыть' : 'Просмотреть' }}</span>
+
+      <!-- Mobile inline viewer -->
+      <div
+        class="viewer viewer--inline"
+        *ngIf="cert.expanded && cert.safeUrl"
+        (click)="$event.stopPropagation()"
+      >
+        <iframe *ngIf="cert.fileType === 'pdf'" [src]="cert.safeUrl" class="viewer__frame"></iframe>
+        <img *ngIf="cert.fileType === 'image'" [src]="cert.file" class="viewer__image" />
       </div>
     </div>
   </div>

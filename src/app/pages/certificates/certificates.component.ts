@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+type FileType = 'pdf' | 'image';
+
 interface Certificate {
-  title: string;
-  issuer: string;
-  date: string;
-  pdfFile: string;
-  pdfUrl?: SafeResourceUrl;
+  file: string;
+  fileType: FileType;
+  safeUrl?: SafeResourceUrl;
   expanded?: boolean;
 }
 
@@ -16,67 +16,56 @@ interface Certificate {
   styleUrls: ['./certificates.component.scss']
 })
 export class CertificatesComponent {
-  certificates: Certificate[] = [
-    {
-      title: 'Сертификат качества ISO 9001',
-      issuer: 'Международная организация по стандартизации',
-      date: '2024',
-      pdfFile: 'assets/certificates/cert-iso-9001.pdf'
-    },
-    {
-      title: 'Сертификат соответствия ГОСТ',
-      issuer: 'Росстандарт',
-      date: '2024',
-      pdfFile: 'assets/certificates/cert-gost.pdf'
-    },
-    {
-      title: 'Сертификат безопасности',
-      issuer: 'Центр сертификации',
-      date: '2023',
-      pdfFile: 'assets/certificates/cert-safety.pdf'
-    },
-    {
-      title: 'Диплом лауреата',
-      issuer: 'Всероссийский конкурс качества',
-      date: '2023',
-      pdfFile: 'assets/certificates/cert-award.pdf'
-    }
-  ];
-
+  certificates: Certificate[];
   selectedCert: Certificate | null = null;
-  selectedPdfUrl: SafeResourceUrl | null = null;
+  selectedUrl: SafeResourceUrl | null = null;
   isMobile = false;
 
   constructor(private sanitizer: DomSanitizer) {
     this.checkMobile();
     window.addEventListener('resize', () => this.checkMobile());
+
+    const files = [
+      'cert1.png', 'cert2.png', 'cert3.jpg', 'cert4.png', 'cert5.jpg',
+      'cert6.jpg', 'cert7.png', 'cert8.png', 'cert9.png', 'cert10.png',
+      'cert11.png', 'cert12.jpg', 'cert13.png', 'cert14.png', 'cert15.png',
+      'cert16.png', 'cert17.png', 'cert18.png', 'cert19.png', 'cert20.png',
+      'cert21.png', 'cert22.png', 'cert23.png', 'cert24.png', 'cert25.png',
+      'cert26.png', 'cert27.png', 'cert28.png', 'cert29.png', 'cert30.png',
+      'cert31.png', 'cert32.png', 'cert33.jpeg', 'cert34.jpeg'
+    ];
+
+    this.certificates = files.map((f, i) => {
+      const ext = f.split('.').pop()!.toLowerCase();
+      return {
+        file: `assets/certificates/${f}`,
+        fileType: ext === 'pdf' ? 'pdf' : 'image' as FileType
+      };
+    });
   }
 
   private checkMobile(): void {
     this.isMobile = window.innerWidth < 768;
   }
 
-  openPdf(cert: Certificate): void {
+  open(cert: Certificate): void {
     if (this.isMobile) {
-      // Toggle inline viewer inside the card
       if (cert.expanded) {
         cert.expanded = false;
-        cert.pdfUrl = undefined;
+        cert.safeUrl = undefined;
       } else {
-        // Close any other open card
-        this.certificates.forEach(c => { c.expanded = false; c.pdfUrl = undefined; });
+        this.certificates.forEach(c => { c.expanded = false; c.safeUrl = undefined; });
         cert.expanded = true;
-        cert.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.pdfFile);
+        cert.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.file);
       }
     } else {
-      // Desktop: show in top viewer
       this.selectedCert = cert;
-      this.selectedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.pdfFile);
+      this.selectedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(cert.file);
     }
   }
 
-  closePdf(): void {
+  close(): void {
     this.selectedCert = null;
-    this.selectedPdfUrl = null;
+    this.selectedUrl = null;
   }
 }
