@@ -6,7 +6,7 @@
     <nav class="header__nav-desktop">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
       <a routerLink="/certificates" routerLinkActive="active">Сертификаты</a>
-      <a routerLink="/gallery" routerLinkActive="active">Галерея</a>
+      <a routerLink="/guides" routerLinkActive="active">Гайды</a>
       <a routerLink="/contacts" routerLinkActive="active">Контакты</a>
     </nav>
 
@@ -28,7 +28,7 @@
 <nav class="mobile-nav" [class.mobile-nav--open]="menuOpen">
   <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Главная</a>
   <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">Сертификаты</a>
-  <a routerLink="/gallery" routerLinkActive="active" (click)="closeMenu()">Галерея</a>
+  <a routerLink="/guides" routerLinkActive="active" (click)="closeMenu()">Гайды</a>
   <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">Контакты</a>
 </nav>
 

@@ -28,7 +28,15 @@
         class="card__thumb"
         loading="lazy"
       />
-      <div *ngIf="cert.fileType === 'pdf'" class="card__icon">&#128196;</div>
+      <div *ngIf="cert.fileType === 'pdf'" class="card__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 64" width="64" height="72">
+          <path d="M36 0H8C5.8 0 4 1.8 4 4v56c0 2.2 1.8 4 4 4h40c2.2 0 4-1.8 4-4V16L36 0z" fill="#e2574c"/>
+          <path d="M40 16h12L36 0v12c0 2.2 1.8 4 4 4z" fill="#b53629"/>
+          <path d="M12 44h32v2H12zm0 6h32v2H12zm0-12h32v2H12z" fill="#fff"/>
+          <rect x="14" y="28" width="10" height="6" rx="1" fill="#fff"/>
+          <text x="19" y="33" text-anchor="middle" font-size="5" font-weight="bold" fill="#e2574c" font-family="Arial,sans-serif">PDF</text>
+        </svg>
+      </div>
 
       <span class="card__action">{{ cert.expanded ? 'Скрыть' : 'Просмотреть' }}</span>
 

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GuidesComponent } from './pages/guides/guides.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     AppComponent,
     HomeComponent,
     CertificatesComponent,
-    GalleryComponent,
+    GuidesComponent,
     ContactsComponent
   ],
   imports: [
