@@ -8,7 +8,15 @@
       <a routerLink="/certificates" routerLinkActive="active">{{ i18n.t('nav.certificates') }}</a>
       <a routerLink="/guides" routerLinkActive="active">{{ i18n.t('nav.guides') }}</a>
       <a routerLink="/contacts" routerLinkActive="active">{{ i18n.t('nav.contacts') }}</a>
-      <button class="lang-toggle" (click)="toggleLang()">{{ i18n.lang === 'en' ? 'RU' : 'EN' }}</button>
+      <button class="lang-toggle" (click)="toggleLangMenu()">{{ i18n.langLabel }}</button>
+      <div class="lang-dropdown" *ngIf="langMenuOpen">
+        <button
+          *ngFor="let lang of i18n.supportedLangs"
+          [class.lang-dropdown__item--active]="lang === i18n.lang"
+          class="lang-dropdown__item"
+          (click)="selectLang(lang)"
+        >{{ lang.toUpperCase() }}</button>
+      </div>
     </nav>
 
     <!-- Burger button (mobile only) -->
@@ -31,13 +39,27 @@
   <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.certificates') }}</a>
   <a routerLink="/guides" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.guides') }}</a>
   <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.contacts') }}</a>
-  <button class="lang-toggle" (click)="toggleLang(); closeMenu()">{{ i18n.lang === 'en' ? 'RU' : 'EN' }}</button>
+  <button class="lang-toggle" (click)="toggleMobileLangMenu()">{{ i18n.langLabel }}</button>
+  <div class="lang-dropdown lang-dropdown--mobile" *ngIf="mobileLangMenuOpen">
+    <button
+      *ngFor="let lang of i18n.supportedLangs"
+      [class.lang-dropdown__item--active]="lang === i18n.lang"
+      class="lang-dropdown__item"
+      (click)="selectLang(lang); closeMenu()"
+    >{{ lang.toUpperCase() }}</button>
+  </div>
 </nav>
 
 <div
   class="overlay"
   *ngIf="menuOpen"
   (click)="closeMenu()"
+></div>
+
+<div
+  class="lang-backdrop"
+  *ngIf="langMenuOpen"
+  (click)="closeLangMenu()"
 ></div>
 
 <main class="main">
