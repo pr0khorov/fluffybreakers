@@ -1,0 +1,18 @@
+<section class="contacts-page">
+  <h1>Контакты</h1>
+  <p class="subtitle">Свяжитесь с нами удобным для вас способом</p>
+
+  <div class="contacts-grid">
+    <a
+      class="contact-card"
+      *ngFor="let item of contacts"
+      [href]="item.link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="contact-icon">{{ item.icon }}</div>
+      <h3>{{ item.label }}</h3>
+      <p class="contact-value">{{ item.value }}</p>
+    </a>
+  </div>
+</section>
