@@ -2,12 +2,27 @@
   <h1>Сертификаты</h1>
   <p class="subtitle">Наши достижения и подтверждения квалификации</p>
 
+  <!-- PDF viewer -->
+  <div class="pdf-viewer" *ngIf="selectedCert && selectedPdfUrl">
+    <div class="pdf-viewer__header">
+      <h2>{{ selectedCert.title }}</h2>
+      <button class="pdf-viewer__close" (click)="closePdf()">Закрыть</button>
+    </div>
+    <iframe [src]="selectedPdfUrl" class="pdf-viewer__frame"></iframe>
+  </div>
+
+  <!-- Certificate cards -->
   <div class="certificates-grid">
-    <div class="certificate-card" *ngFor="let cert of certificates">
+    <div
+      class="certificate-card"
+      *ngFor="let cert of certificates"
+      (click)="openPdf(cert)"
+    >
       <div class="certificate-icon">&#128196;</div>
       <h3>{{ cert.title }}</h3>
       <p class="certificate-issuer">{{ cert.issuer }}</p>
       <p class="certificate-date">{{ cert.date }}</p>
+      <span class="certificate-action">Просмотреть PDF</span>
     </div>
   </div>
 </section>

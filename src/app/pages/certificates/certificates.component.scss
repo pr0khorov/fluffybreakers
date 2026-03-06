@@ -13,6 +13,53 @@
   }
 }
 
+/* PDF Viewer */
+.pdf-viewer {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+
+    h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  }
+
+  &__close {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #c0392b;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+  }
+}
+
+/* Certificate cards */
 .certificates-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -25,10 +72,12 @@
   border-radius: 8px;
   padding: 32px;
   text-align: center;
-  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
   }
 
   .certificate-icon {
@@ -50,6 +99,14 @@
   .certificate-date {
     color: #999;
     font-size: 0.85rem;
-    margin: 0;
+    margin: 0 0 16px;
+  }
+
+  .certificate-action {
+    display: inline-block;
+    color: #667eea;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-bottom: 1px dashed #667eea;
   }
 }
