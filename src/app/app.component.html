@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header__container">
+    <a routerLink="/" class="header__logo">FluffyBreakers</a>
+    <nav class="header__nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Главная</a>
+      <a routerLink="/certificates" routerLinkActive="active">Сертификаты</a>
+      <a routerLink="/gallery" routerLinkActive="active">Галерея</a>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+  <div class="footer__container">
+    <p>&copy; 2026 FluffyBreakers. Все права защищены.</p>
+  </div>
+</footer>
