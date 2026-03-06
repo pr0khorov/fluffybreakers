@@ -8,6 +8,7 @@
       <a routerLink="/certificates" routerLinkActive="active">{{ i18n.t('nav.certificates') }}</a>
       <a routerLink="/guides" routerLinkActive="active">{{ i18n.t('nav.guides') }}</a>
       <a routerLink="/contacts" routerLinkActive="active">{{ i18n.t('nav.contacts') }}</a>
+      <button class="theme-toggle" (click)="toggleTheme()" [attr.aria-label]="theme.isDark ? 'Switch to light mode' : 'Switch to dark mode'">{{ theme.isDark ? '\u2600\uFE0F' : '\uD83C\uDF19' }}</button>
       <button class="lang-toggle" (click)="toggleLangMenu()">{{ i18n.langLabel }}</button>
       <div class="lang-dropdown" *ngIf="langMenuOpen">
         <button
@@ -39,6 +40,7 @@
   <a routerLink="/certificates" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.certificates') }}</a>
   <a routerLink="/guides" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.guides') }}</a>
   <a routerLink="/contacts" routerLinkActive="active" (click)="closeMenu()">{{ i18n.t('nav.contacts') }}</a>
+  <button class="theme-toggle" (click)="toggleTheme()">{{ theme.isDark ? '\u2600\uFE0F' : '\uD83C\uDF19' }}</button>
   <button class="lang-toggle" (click)="toggleMobileLangMenu()">{{ i18n.langLabel }}</button>
   <div class="lang-dropdown lang-dropdown--mobile" *ngIf="mobileLangMenuOpen">
     <button

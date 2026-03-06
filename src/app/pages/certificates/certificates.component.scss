@@ -1,34 +1,36 @@
 .certificates-page {
   h1 {
     text-align: center;
-    color: #333;
+    color: var(--color-text);
     margin-bottom: 8px;
   }
 }
 
 /* ====== Viewer (shared) ====== */
 .viewer {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 8px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 
   &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 24px;
-    border-bottom: 1px solid #e0e0e0;
-    background: #fafafa;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--bg-card-secondary);
+    transition: background-color 0.3s ease;
 
     h2 {
       margin: 0;
       font-size: 1.1rem;
-      color: #333;
+      color: var(--color-text);
     }
   }
 
   &__close {
-    background: #e74c3c;
+    background: var(--color-close-btn);
     color: #fff;
     border: none;
     padding: 8px 20px;
@@ -38,14 +40,15 @@
     transition: background 0.2s;
 
     &:hover {
-      background: #c0392b;
+      background: var(--color-close-btn-hover);
     }
   }
 
   &__body {
     display: flex;
     justify-content: center;
-    background: #f5f5f5;
+    background: var(--bg-viewer-body);
+    transition: background-color 0.3s ease;
   }
 
   &__frame {
@@ -65,7 +68,7 @@
 
 /* Desktop top viewer */
 .viewer--desktop {
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-border);
   margin-bottom: 32px;
 }
 
@@ -82,19 +85,19 @@
 }
 
 .certificate-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 16px;
   text-align: center;
   cursor: pointer;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px var(--shadow-card-hover);
     transform: translateY(-2px);
   }
 
@@ -104,7 +107,7 @@
     object-fit: contain;
     border-radius: 4px;
     margin-bottom: 12px;
-    background: #fafafa;
+    background: var(--bg-card-secondary);
   }
 
   .card__icon {
@@ -119,16 +122,16 @@
 
   h3 {
     margin: 0 0 8px;
-    color: #333;
+    color: var(--color-text);
     font-size: 0.95rem;
   }
 
   .card__action {
     display: inline-block;
-    color: #667eea;
+    color: var(--color-accent);
     font-size: 0.85rem;
     font-weight: 500;
-    border-bottom: 1px dashed #667eea;
+    border-bottom: 1px dashed var(--color-accent);
     margin-top: auto;
   }
 }
@@ -146,7 +149,7 @@
     margin-right: -16px;
     margin-bottom: -16px;
     border-radius: 0 0 8px 8px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--color-border);
 
     .viewer__frame {
       height: 400px;
@@ -161,7 +164,7 @@
 
   .certificate-card--expanded {
     transform: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px var(--shadow-card-hover);
 
     &:hover {
       transform: none;

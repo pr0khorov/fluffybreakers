@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LanguageService, Lang } from './services/language.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   langMenuOpen = false;
   mobileLangMenuOpen = false;
 
-  constructor(public i18n: LanguageService) {}
+  constructor(public i18n: LanguageService, public theme: ThemeService) {}
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;
@@ -42,5 +43,9 @@ export class AppComponent {
 
   closeLangMenu(): void {
     this.langMenuOpen = false;
+  }
+
+  toggleTheme(): void {
+    this.theme.toggle();
   }
 }
