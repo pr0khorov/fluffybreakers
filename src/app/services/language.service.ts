@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export type Lang = 'en' | 'ru' | 'lv' | 'sv';
+export type Lang = 'en' | 'ru' | 'lv';
 
-const SUPPORTED_LANGS: Lang[] = ['en', 'ru', 'lv', 'sv'];
+const SUPPORTED_LANGS: Lang[] = ['en', 'ru', 'lv'];
 
 const LANG_LABELS: Record<Lang, string> = {
   en: 'EN',
   ru: 'RU',
   lv: 'LV',
-  sv: 'SV',
 };
 
 const TRANSLATIONS: Record<Lang, Record<string, string>> = {
@@ -40,7 +39,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q5': 'How can I contact you?',
     'faq.a5': 'Via DM in Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nAlso see \u201CContacts\u201D page for more options.',
     'faq.q6': 'Do you have anything besides consultations?',
-    'faq.a6': 'Yes \uD83E\uDD0D\nIf you\'re not ready for a full consultation yet, you can start small. Below you can find my checklist and guide. And, of course, blog posts & reels with practical tips.',
+    'faq.a6': 'Yes \uD83E\uDD0D\nIf you\'re not ready for a full consultation yet, you can start small. You can find my checklists and guides on this website in the \u201CGuides\u201D section. And, of course, blog posts & reels with practical tips.',
 
     // Certificates
     'certificates.title': 'Certificates',
@@ -92,7 +91,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q5': '\u041A\u0430\u043A \u0441 \u0432\u0430\u043C\u0438 \u0441\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F?',
     'faq.a5': '\u0427\u0435\u0440\u0435\u0437 \u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F \u0432 Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\n\u0422\u0430\u043A\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443 \u00AB\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B\u00BB.',
     'faq.q6': '\u0415\u0441\u0442\u044C \u043B\u0438 \u0447\u0442\u043E-\u0442\u043E \u043A\u0440\u043E\u043C\u0435 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0439?',
-    'faq.a6': '\u0414\u0430 \uD83E\uDD0D\n\u0415\u0441\u043B\u0438 \u0432\u044B \u0435\u0449\u0451 \u043D\u0435 \u0433\u043E\u0442\u043E\u0432\u044B \u043A \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438, \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0447\u0430\u0442\u044C \u0441 \u043C\u0430\u043B\u043E\u0433\u043E. \u041D\u0438\u0436\u0435 \u0432\u044B \u043D\u0430\u0439\u0434\u0451\u0442\u0435 \u043C\u043E\u0439 \u0447\u0435\u043A-\u043B\u0438\u0441\u0442 \u0438 \u0433\u0430\u0439\u0434. \u0410 \u0442\u0430\u043A\u0436\u0435, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043F\u043E\u0441\u0442\u044B \u0438 \u0440\u0438\u043B\u0441\u044B \u0441 \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0441\u043E\u0432\u0435\u0442\u0430\u043C\u0438.',
+    'faq.a6': '\u0414\u0430 \uD83E\uDD0D\n\u0415\u0441\u043B\u0438 \u0432\u044B \u0435\u0449\u0451 \u043D\u0435 \u0433\u043E\u0442\u043E\u0432\u044B \u043A \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438, \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0447\u0430\u0442\u044C \u0441 \u043C\u0430\u043B\u043E\u0433\u043E. \u0427\u0435\u043A-\u043B\u0438\u0441\u0442\u044B \u0438 \u0433\u0430\u0439\u0434\u044B \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0439\u0442\u0438 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 \u0432 \u0440\u0430\u0437\u0434\u0435\u043B\u0435 \u00AB\u0413\u0430\u0439\u0434\u044B\u00BB. \u0410 \u0442\u0430\u043A\u0436\u0435, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043F\u043E\u0441\u0442\u044B \u0438 \u0440\u0438\u043B\u0441\u044B \u0441 \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0441\u043E\u0432\u0435\u0442\u0430\u043C\u0438.',
 
     // Certificates
     'certificates.title': '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B',
@@ -144,7 +143,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q5': 'K\u0101 ar jums sazin\u0101ties?',
     'faq.a5': 'Rakstiet Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nSkatiet ar\u012B lapu \u201CKontakti\u201D.',
     'faq.q6': 'Vai jums ir v\u0113l kas papildus konsult\u0101cij\u0101m?',
-    'faq.a6': 'J\u0101 \uD83E\uDD0D\nJa v\u0113l neesat gatavi pilnai konsult\u0101cijai, varat s\u0101kt ar mazumu. Zem\u0101k atrad\u012Bsiet manu kontrolsarakstu un ce\u013Cvedi. Un, protams, emu\u0101ra ierakstus un reels ar praktiskiem padomiem.',
+    'faq.a6': 'J\u0101 \uD83E\uDD0D\nJa v\u0113l neesat gatavi pilnai konsult\u0101cijai, varat s\u0101kt ar mazumu. Kontrolsarakstus un ce\u013Cve\u017Eus varat atrast \u0161aj\u0101 t\u012Bmek\u013Ca vietn\u0113 sada\u013C\u0101 \u201CCe\u013Cve\u017Ei\u201D. Un, protams, emu\u0101ra ierakstus un reels ar praktiskiem padomiem.',
 
     // Certificates
     'certificates.title': 'Sertifik\u0101ti',
@@ -169,57 +168,6 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.email': 'E-pasts',
   },
 
-  sv: {
-    // Nav
-    'nav.home': 'Hem',
-    'nav.certificates': 'Certifikat',
-    'nav.guides': 'Guider',
-    'nav.contacts': 'Kontakt',
-
-    // Footer
-    'footer.rights': '\u00A9 2026 FluffyBreakers. Alla r\u00E4ttigheter f\u00F6rbeh\u00E5llna.',
-
-    // Home — hero
-    'home.name': 'Aleksandra',
-    'home.brand': 'Fluffy Breakers',
-    'home.hero': 'Specialist p\u00E5 hundbeteende & sorgest\u00F6d vid f\u00F6rlust av husdjur<br>Riga, Lettland & online<br>Hj\u00E4lper genom sv\u00E5ra stunder.<br>\uD83E\uDDE1band\uD83E\uDDE1tillit\uD83E\uDDE1komfort\uD83E\uDDE1trygghet\uD83E\uDDE1',
-
-    // Home — FAQ
-    'faq.q1': 'Tar du emot nya klienter?',
-    'faq.a1': 'Ja. Jag \u00F6ppnar regelbundet platser f\u00F6r nya klienter, b\u00E5de online och p\u00E5 plats.\nOm schemat \u00E4r fullt kan du st\u00E4lla dig i k\u00F6n s\u00E5 kontaktar jag dig s\u00E5 snart en plats blir ledig.',
-    'faq.q2': 'Vad kan du hj\u00E4lpa oss med?',
-    'faq.a2': 'Hundbeteende och vardagsliv tillsammans.\nReaktivitet, dragning i koppel, r\u00E4dslor, aggression, valpgrunder, lugna promenader \u2014 och \u00E4ven sorgest\u00F6d vid f\u00F6rlust av husdjur.\nVi arbetar steg f\u00F6r steg, i din takt, med realistiska l\u00F6sningar, utan skam och press.',
-    'faq.q3': 'Din prislista?',
-    'faq.a3': 'Konsultationer online och p\u00E5 plats: 30\u20AC',
-    'faq.q4': 'Var arbetar du?',
-    'faq.a4': '\uD83D\uDCCD Riga, Lettland \u2014 p\u00E5 plats\n\uD83C\uDF10 V\u00E4rldsomfattande \u2014 online\nOnlinearbete \u00E4r lika effektivt och ofta bekv\u00E4mare f\u00F6r \u00E4garna.',
-    'faq.q5': 'Hur kan jag kontakta dig?',
-    'faq.a5': 'Via DM p\u00E5 Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nSe \u00E4ven sidan \u201CKontakt\u201D f\u00F6r fler alternativ.',
-    'faq.q6': 'Har du n\u00E5got ut\u00F6ver konsultationer?',
-    'faq.a6': 'Ja \uD83E\uDD0D\nOm du inte \u00E4r redo f\u00F6r en fullst\u00E4ndig konsultation \u00E4nnu kan du b\u00F6rja sm\u00E5tt. Nedan hittar du min checklista och guide. Och naturligtvis blogginl\u00E4gg och reels med praktiska tips.',
-
-    // Certificates
-    'certificates.title': 'Certifikat',
-    'certificates.subtitle': 'V\u00E5ra prestationer och kvalifikationsintyg',
-    'certificates.close': 'St\u00E4ng',
-    'certificates.hide': 'D\u00F6lj',
-    'certificates.view': 'Visa',
-
-    // Guides
-    'guides.title': 'Guider',
-    'guides.subtitle': 'Anv\u00E4ndbara material f\u00F6r hund\u00E4gare',
-    'guides.close': 'St\u00E4ng',
-    'guides.hide': 'D\u00F6lj',
-    'guides.viewPdf': 'Visa PDF',
-    'guides.item1': 'Checklista f\u00F6r stresstecken hos hundar',
-    'guides.item2': 'Varf\u00F6r hundar drar i kopplet',
-
-    // Contacts
-    'contacts.title': 'Kontakt',
-    'contacts.subtitle': 'Kontakta oss p\u00E5 det s\u00E4tt som passar dig',
-    'contacts.phone': 'Telefon',
-    'contacts.email': 'E-post',
-  },
 };
 
 function detectBrowserLang(): Lang {
