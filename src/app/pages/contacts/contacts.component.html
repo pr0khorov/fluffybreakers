@@ -9,7 +9,10 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div class="contact-icon">{{ item.icon }}</div>
+      <div class="contact-icon">
+        <img *ngIf="item.iconImage" [src]="item.iconImage" [alt]="item.label || ''" class="contact-icon__img" />
+        <span *ngIf="!item.iconImage">{{ item.icon }}</span>
+      </div>
       <h3>{{ item.labelKey ? i18n.t(item.labelKey) : item.label }}</h3>
       <p class="contact-value">{{ item.value }}</p>
     </a>
