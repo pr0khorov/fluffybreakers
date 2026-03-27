@@ -18,6 +18,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.certificates': 'Certificates',
     'nav.guides': 'Guides',
     'nav.contacts': 'Contacts',
+    'nav.booking': 'Book a Session',
 
     // Footer
     'footer.rights': '\u00A9 2026 FluffyBreakers. All rights reserved.',
@@ -62,6 +63,10 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.subtitle': 'Get in touch with us in any convenient way',
     'contacts.phone': 'Phone',
     'contacts.email': 'Email',
+
+    // Booking
+    'booking.title': 'Book a Session',
+    'booking.subtitle': 'Fill out the form below to schedule a consultation',
   },
 
   ru: {
@@ -70,6 +75,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.certificates': '\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0442\u044B',
     'nav.guides': '\u0413\u0430\u0439\u0434\u044B',
     'nav.contacts': '\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B',
+    'nav.booking': '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F',
 
     // Footer
     'footer.rights': '\u00A9 2026 FluffyBreakers. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
@@ -114,6 +120,10 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.subtitle': '\u0421\u0432\u044F\u0436\u0438\u0442\u0435\u0441\u044C \u0441 \u043D\u0430\u043C\u0438 \u0443\u0434\u043E\u0431\u043D\u044B\u043C \u0434\u043B\u044F \u0432\u0430\u0441 \u0441\u043F\u043E\u0441\u043E\u0431\u043E\u043C',
     'contacts.phone': '\u0422\u0435\u043B\u0435\u0444\u043E\u043D',
     'contacts.email': '\u041F\u043E\u0447\u0442\u0430',
+
+    // Booking
+    'booking.title': '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F',
+    'booking.subtitle': '\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0444\u043E\u0440\u043C\u0443 \u043D\u0438\u0436\u0435, \u0447\u0442\u043E\u0431\u044B \u0437\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044E',
   },
 
   lv: {
@@ -122,6 +132,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.certificates': 'Sertifik\u0101ti',
     'nav.guides': 'Ce\u013Cve\u017Ei',
     'nav.contacts': 'Kontakti',
+    'nav.booking': 'Pierakst\u012Bties',
 
     // Footer
     'footer.rights': '\u00A9 2026 FluffyBreakers. Visas ties\u012Bbas aizsarg\u0101tas.',
@@ -166,6 +177,10 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.subtitle': 'Sazinieties ar mums jums \u0113rt\u0101 veid\u0101',
     'contacts.phone': 'T\u0101lrunis',
     'contacts.email': 'E-pasts',
+
+    // Booking
+    'booking.title': 'Pierakst\u012Bties',
+    'booking.subtitle': 'Aizpildiet zemāk esošo veidlapu, lai pieteiktos konsultācijai',
   },
 
 };

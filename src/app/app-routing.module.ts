@@ -4,12 +4,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { CertificatesComponent } from './pages/certificates/certificates.component';
 import { GuidesComponent } from './pages/guides/guides.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { BookingComponent } from './pages/booking/booking.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'certificates', component: CertificatesComponent },
   { path: 'guides', component: GuidesComponent },
   { path: 'contacts', component: ContactsComponent },
+  { path: 'booking', component: BookingComponent },
   { path: '**', redirectTo: '' }
 ];
 

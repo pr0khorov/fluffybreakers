@@ -1,0 +1,14 @@
+<section class="booking-page">
+  <h1>{{ i18n.t('booking.title') }}</h1>
+  <p class="booking-page__subtitle">{{ i18n.t('booking.subtitle') }}</p>
+
+  <div class="booking-page__form-wrapper">
+    <iframe
+      [src]="formUrl"
+      class="booking-page__frame"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+    ></iframe>
+  </div>
+</section>
