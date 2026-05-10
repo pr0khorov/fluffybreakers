@@ -27,13 +27,14 @@ export class CertificatesComponent {
     window.addEventListener('resize', () => this.checkMobile());
 
     const files = [
-      'cert1.png', 'cert2.png', 'cert3.jpg', 'cert4.png', 'cert5.jpg',
-      'cert6.jpg', 'cert7.png', 'cert8.png', 'cert9.png', 'cert10.png',
-      'cert11.png', 'cert12.jpg', 'cert13.png', 'cert14.png', 'cert15.png',
-      'cert16.png', 'cert17.png', 'cert18.png', 'cert19.png', 'cert20.png',
-      'cert21.png', 'cert22.png', 'cert23.png', 'cert24.png', 'cert25.png',
-      'cert26.png', 'cert27.png', 'cert28.png', 'cert29.png', 'cert30.png',
-      'cert31.png', 'cert32.png', 'cert33.jpeg', 'cert34.jpeg'
+      'cert35.png',
+      'cert34.png', 'cert33.png', 'cert32.jpg', 'cert31.png', 'cert30.jpg',
+      'cert29.jpg', 'cert28.png', 'cert27.png', 'cert26.png', 'cert25.png',
+      'cert24.png', 'cert23.jpg', 'cert22.png', 'cert21.png', 'cert20.png',
+      'cert19.png', 'cert18.png', 'cert17.png', 'cert16.png', 'cert15.png',
+      'cert14.png', 'cert13.png', 'cert12.png', 'cert11.png', 'cert10.png',
+      'cert9.png', 'cert8.png', 'cert7.png', 'cert6.png', 'cert5.png',
+      'cert4.png', 'cert3.png', 'cert2.jpeg', 'cert1.jpeg'
     ];
 
     this.certificates = files.map((f, i) => {
