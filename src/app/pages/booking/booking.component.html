@@ -3,12 +3,33 @@
   <p class="booking-page__subtitle">{{ i18n.t('booking.subtitle') }}</p>
 
   <div class="booking-page__form-wrapper">
-    <iframe
-      [src]="formUrl"
-      class="booking-page__frame"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-    ></iframe>
+    <ng-container *ngIf="status !== 'success'; else successBlock">
+      <label class="booking-page__label" for="contact-info">
+        {{ i18n.t('booking.contact.label') }}
+      </label>
+      <textarea
+        id="contact-info"
+        class="booking-page__textarea"
+        [(ngModel)]="contactInfo"
+        [placeholder]="i18n.t('booking.contact.placeholder')"
+        rows="5"
+      ></textarea>
+      <button
+        class="booking-page__submit"
+        (click)="submit()"
+        [disabled]="status === 'sending' || !contactInfo.trim()"
+      >
+        {{ status === 'sending' ? i18n.t('booking.sending') : i18n.t('booking.submit') }}
+      </button>
+      <p *ngIf="status === 'error'" class="booking-page__error">
+        {{ i18n.t('booking.error') }}
+      </p>
+    </ng-container>
+
+    <ng-template #successBlock>
+      <div class="booking-page__success">
+        {{ i18n.t('booking.success') }}
+      </div>
+    </ng-template>
   </div>
 </section>

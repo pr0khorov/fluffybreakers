@@ -66,7 +66,13 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
 
     // Booking
     'booking.title': 'Book a Session',
-    'booking.subtitle': 'Fill out the form below to schedule a consultation',
+    'booking.subtitle': 'Leave your contact details and I\'ll reach out to you shortly',
+    'booking.contact.label': 'How can I contact you?',
+    'booking.contact.placeholder': 'Phone number, email, Instagram / Telegram / WhatsApp — whatever works for you',
+    'booking.submit': 'Send',
+    'booking.sending': 'Sending…',
+    'booking.success': 'Thank you! I\'ll be in touch soon 🐾',
+    'booking.error': 'Something went wrong. Please try again or reach me directly via Contacts.',
   },
 
   ru: {
@@ -122,8 +128,14 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.email': '\u041F\u043E\u0447\u0442\u0430',
 
     // Booking
-    'booking.title': '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F',
-    'booking.subtitle': '\u0417\u0430\u043F\u043E\u043B\u043D\u0438\u0442\u0435 \u0444\u043E\u0440\u043C\u0443 \u043D\u0438\u0436\u0435, \u0447\u0442\u043E\u0431\u044B \u0437\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F \u043D\u0430 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u044E',
+    'booking.title': 'Записаться',
+    'booking.subtitle': 'Оставьте контактные данные, и я свяжусь с вами в ближайшее время',
+    'booking.contact.label': 'Как с вами связаться?',
+    'booking.contact.placeholder': 'Номер телефона, email, Instagram / Telegram / WhatsApp — как вам удобнее',
+    'booking.submit': 'Отправить',
+    'booking.sending': 'Отправляется…',
+    'booking.success': 'Спасибо! Скоро свяжусь с вами 🐾',
+    'booking.error': 'Что-то пошло не так. Попробуйте ещё раз или напишите напрямую через раздел «Контакты».',
   },
 
   lv: {
@@ -179,8 +191,14 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'contacts.email': 'E-pasts',
 
     // Booking
-    'booking.title': 'Pierakst\u012Bties',
-    'booking.subtitle': 'Aizpildiet zemāk esošo veidlapu, lai pieteiktos konsultācijai',
+    'booking.title': 'Pierakstīties',
+    'booking.subtitle': 'Atstājiet savus kontaktdatus un es ar jums sazināšos drīzumā',
+    'booking.contact.label': 'Kā ar jums sazināties?',
+    'booking.contact.placeholder': 'Tālruņa numurs, e-pasts, Instagram / Telegram / WhatsApp — jebkā, kas jums ērti',
+    'booking.submit': 'Nosūtīt',
+    'booking.sending': 'Sūta…',
+    'booking.success': 'Paldies! Drīz ar jums sazināšos 🐾',
+    'booking.error': 'Kaut kas nogāja greizi. Lūdzu, mēģiniet vēlreiz vai sazinieties tieši caur lapu "Kontakti".',
   },
 
 };
