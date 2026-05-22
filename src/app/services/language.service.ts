@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export type Lang = 'en' | 'ru' | 'lv';
 
-const SUPPORTED_LANGS: Lang[] = ['en', 'ru', 'lv'];
+const SUPPORTED_LANGS: Lang[] = ['en', 'ru'];
 
 const LANG_LABELS: Record<Lang, string> = {
   en: 'EN',
