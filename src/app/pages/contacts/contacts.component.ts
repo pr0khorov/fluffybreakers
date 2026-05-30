@@ -23,8 +23,8 @@ export class ContactsComponent {
       icon: '📷',
       iconImage: 'https://cdn.simpleicons.org/instagram',
       label: 'Instagram',
-      value: '@fluffy.breakers',
-      link: 'https://instagram.com/fluffy.breakers'
+      value: '@pawcipher',
+      link: 'https://instagram.com/pawcipher'
     },
     {
       icon: '💬',

@@ -28,7 +28,7 @@ export class BookingComponent {
 
     this.http.post('https://api.web3forms.com/submit', {
       access_key: WEB3FORMS_ACCESS_KEY,
-      subject: 'New booking request — FluffyBreakers',
+      subject: 'New booking request — Pawcipher',
       message: value
     }).subscribe({
       next: () => { this.status = 'success'; },

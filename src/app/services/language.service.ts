@@ -21,11 +21,11 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.booking': 'Book a Session',
 
     // Footer
-    'footer.rights': '\u00A9 2026 FluffyBreakers. All rights reserved.',
+    'footer.rights': '\u00A9 2026 Pawcipher. All rights reserved.',
 
     // Home — hero
     'home.name': 'Aleksandra',
-    'home.brand': 'Fluffy Breakers',
+    'home.brand': 'Pawcipher',
     'home.hero': 'Dog behavior specialist & Pet loss grief counselor<br>Riga, Latvia & Online<br>Helping through hard moments.<br>\uD83E\uDDE1bond\uD83E\uDDE1trust\uD83E\uDDE1comfort\uD83E\uDDE1safety\uD83E\uDDE1',
 
     // Home — FAQ
@@ -38,7 +38,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q4': 'Where do you work?',
     'faq.a4': '\uD83D\uDCCD Riga, Latvia \u2014 in person\n\uD83C\uDF10 Worldwide \u2014 online\nOnline work is just as effective and often more convenient for owners.',
     'faq.q5': 'How can I contact you?',
-    'faq.a5': 'Via DM in Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nAlso see \u201CContacts\u201D page for more options.',
+    'faq.a5': 'Via DM in Instagram (<a href="https://instagram.com/pawcipher" target="_blank" rel="noopener noreferrer">@pawcipher</a>)\nAlso see \u201CContacts\u201D and \u201CBook a Session\u201D pages for more options.',
     'faq.q6': 'Do you have anything besides consultations?',
     'faq.a6': 'Yes \uD83E\uDD0D\nIf you\'re not ready for a full consultation yet, you can start small. You can find my checklists and guides on this website in the \u201CGuides\u201D section. And, of course, blog posts & reels with practical tips.',
 
@@ -84,11 +84,11 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.booking': '\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F',
 
     // Footer
-    'footer.rights': '\u00A9 2026 FluffyBreakers. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
+    'footer.rights': '\u00A9 2026 Pawcipher. \u0412\u0441\u0435 \u043F\u0440\u0430\u0432\u0430 \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u044B.',
 
     // Home — hero
     'home.name': '\u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440\u0430',
-    'home.brand': 'Fluffy Breakers',
+    'home.brand': 'Pawcipher',
     'home.hero': '\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442 \u043F\u043E \u043F\u043E\u0432\u0435\u0434\u0435\u043D\u0438\u044E \u0441\u043E\u0431\u0430\u043A \u0438 \u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0430 \u043F\u0440\u0438 \u043F\u043E\u0442\u0435\u0440\u0435 \u043F\u0438\u0442\u043E\u043C\u0446\u0430<br>\u0420\u0438\u0433\u0430, \u041B\u0430\u0442\u0432\u0438\u044F \u0438 \u043E\u043D\u043B\u0430\u0439\u043D<br>\u041F\u043E\u043C\u043E\u0433\u0430\u044E \u0432 \u0442\u0440\u0443\u0434\u043D\u044B\u0435 \u043C\u043E\u043C\u0435\u043D\u0442\u044B.<br>\uD83E\uDDE1\u0441\u0432\u044F\u0437\u044C\uD83E\uDDE1\u0434\u043E\u0432\u0435\u0440\u0438\u0435\uD83E\uDDE1\u043A\u043E\u043C\u0444\u043E\u0440\u0442\uD83E\uDDE1\u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C\uD83E\uDDE1',
 
     // Home — FAQ
@@ -101,7 +101,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q4': '\u0413\u0434\u0435 \u0432\u044B \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442\u0435?',
     'faq.a4': '\uD83D\uDCCD \u0420\u0438\u0433\u0430, \u041B\u0430\u0442\u0432\u0438\u044F \u2014 \u043E\u0447\u043D\u043E\n\uD83C\uDF10 \u041F\u043E \u0432\u0441\u0435\u043C\u0443 \u043C\u0438\u0440\u0443 \u2014 \u043E\u043D\u043B\u0430\u0439\u043D\n\u041E\u043D\u043B\u0430\u0439\u043D-\u0440\u0430\u0431\u043E\u0442\u0430 \u0442\u0430\u043A \u0436\u0435 \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u0430 \u0438 \u0447\u0430\u0441\u0442\u043E \u0443\u0434\u043E\u0431\u043D\u0435\u0435 \u0434\u043B\u044F \u0432\u043B\u0430\u0434\u0435\u043B\u044C\u0446\u0435\u0432.',
     'faq.q5': '\u041A\u0430\u043A \u0441 \u0432\u0430\u043C\u0438 \u0441\u0432\u044F\u0437\u0430\u0442\u044C\u0441\u044F?',
-    'faq.a5': '\u0427\u0435\u0440\u0435\u0437 \u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F \u0432 Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\n\u0422\u0430\u043A\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0443 \u00AB\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B\u00BB.',
+    'faq.a5': '\u0427\u0435\u0440\u0435\u0437 \u043B\u0438\u0447\u043D\u044B\u0435 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F \u0432 Instagram (<a href="https://instagram.com/pawcipher" target="_blank" rel="noopener noreferrer">@pawcipher</a>)\n\u0422\u0430\u043A\u0436\u0435 \u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B \u00AB\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B\u00BB \u0438 \u00AB\u0417\u0430\u043F\u0438\u0441\u0430\u0442\u044C\u0441\u044F\u00BB.',
     'faq.q6': '\u0415\u0441\u0442\u044C \u043B\u0438 \u0447\u0442\u043E-\u0442\u043E \u043A\u0440\u043E\u043C\u0435 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0439?',
     'faq.a6': '\u0414\u0430 \uD83E\uDD0D\n\u0415\u0441\u043B\u0438 \u0432\u044B \u0435\u0449\u0451 \u043D\u0435 \u0433\u043E\u0442\u043E\u0432\u044B \u043A \u043F\u043E\u043B\u043D\u043E\u0446\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043D\u0441\u0443\u043B\u044C\u0442\u0430\u0446\u0438\u0438, \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0447\u0430\u0442\u044C \u0441 \u043C\u0430\u043B\u043E\u0433\u043E. \u0427\u0435\u043A-\u043B\u0438\u0441\u0442\u044B \u0438 \u0433\u0430\u0439\u0434\u044B \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0439\u0442\u0438 \u043D\u0430 \u0441\u0430\u0439\u0442\u0435 \u0432 \u0440\u0430\u0437\u0434\u0435\u043B\u0435 \u00AB\u0413\u0430\u0439\u0434\u044B\u00BB. \u0410 \u0442\u0430\u043A\u0436\u0435, \u043A\u043E\u043D\u0435\u0447\u043D\u043E, \u043F\u043E\u0441\u0442\u044B \u0438 \u0440\u0438\u043B\u0441\u044B \u0441 \u043F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0441\u043E\u0432\u0435\u0442\u0430\u043C\u0438.',
 
@@ -147,11 +147,11 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'nav.booking': 'Pierakst\u012Bties',
 
     // Footer
-    'footer.rights': '\u00A9 2026 FluffyBreakers. Visas ties\u012Bbas aizsarg\u0101tas.',
+    'footer.rights': '\u00A9 2026 Pawcipher. Visas ties\u012Bbas aizsarg\u0101tas.',
 
     // Home — hero
     'home.name': 'Aleksandra',
-    'home.brand': 'Fluffy Breakers',
+    'home.brand': 'Pawcipher',
     'home.hero': 'Su\u0146u uzved\u012Bbas speci\u0101liste un m\u012B\u013Cdz\u012Bvnieku zaud\u0113juma atbalsts<br>R\u012Bga, Latvija un tie\u0161saist\u0113<br>Pal\u012Bdzu gr\u016Btos br\u012B\u017Eos.<br>\uD83E\uDDE1saikne\uD83E\uDDE1uztic\u0113\u0161an\u0101s\uD83E\uDDE1komforts\uD83E\uDDE1dro\u0161\u012Bba\uD83E\uDDE1',
 
     // Home — FAQ
@@ -164,7 +164,7 @@ const TRANSLATIONS: Record<Lang, Record<string, string>> = {
     'faq.q4': 'Kur j\u016Bs str\u0101d\u0101jat?',
     'faq.a4': '\uD83D\uDCCD R\u012Bga, Latvija \u2014 kl\u0101tien\u0113\n\uD83C\uDF10 Vis\u0101 pasaul\u0113 \u2014 tie\u0161saist\u0113\nDarbs tie\u0161saist\u0113 ir tikpat efekt\u012Bvs un bieži \u0113rt\u0101ks \u012Bpa\u0161niekiem.',
     'faq.q5': 'K\u0101 ar jums sazin\u0101ties?',
-    'faq.a5': 'Rakstiet Instagram (<a href="https://instagram.com/fluffy.breakers" target="_blank" rel="noopener noreferrer">@fluffy.breakers</a>)\nSkatiet ar\u012B lapu \u201CKontakti\u201D.',
+    'faq.a5': 'Rakstiet Instagram (<a href="https://instagram.com/pawcipher" target="_blank" rel="noopener noreferrer">@pawcipher</a>)\nSkatiet ar\u012B lapu \u201CKontakti\u201D.',
     'faq.q6': 'Vai jums ir v\u0113l kas papildus konsult\u0101cij\u0101m?',
     'faq.a6': 'J\u0101 \uD83E\uDD0D\nJa v\u0113l neesat gatavi pilnai konsult\u0101cijai, varat s\u0101kt ar mazumu. Kontrolsarakstus un ce\u013Cve\u017Eus varat atrast \u0161aj\u0101 t\u012Bmek\u013Ca vietn\u0113 sada\u013C\u0101 \u201CCe\u013Cve\u017Ei\u201D. Un, protams, emu\u0101ra ierakstus un reels ar praktiskiem padomiem.',
 

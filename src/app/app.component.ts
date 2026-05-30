@@ -8,7 +8,7 @@ import { ThemeService } from './services/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'fluffybreakers';
+  title = 'pawcipher';
   menuOpen = false;
   langMenuOpen = false;
   mobileLangMenuOpen = false;
